@@ -1,0 +1,5 @@
+[package]
+name = "shadowseek-core"
+publish = false
+
+[dependencies]

@@ -1,0 +1,51 @@
+[package]
+name = "shadowseek"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish = false # Will change to `true` when ready to publish
+keywords = [
+  "text classification",
+  "duplicate detection",
+  "near-duplicate detection",
+  "SimHash",
+  "MinHash",
+]
+description = "A CLI tool for near-duplicate detection in text files, written in Rust with no dependencies on runtime environments."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Luis-Varona/shadowseek"
+
+[[bin]]
+name = "shadowseek"
+path = "src/main.rs"
+
+[workspace]
+members = [
+  "crates/core",
+  "crates/extractor",
+  "crates/hashing",
+  "crates/index",
+  "crates/tui",
+]
+
+[workspace.package]
+authors = ["Luis M. B. Varona <lbvarona@mta.ca>"]
+version = "0.1.0-dev"
+edition = "2024"
+rust-version = "1.85"
+
+[dependencies]
+
+[patch.crates-io]
+shadowseek-core = { path = "crates/core" }
+shadowseek-extractor = { path = "crates/extractor" }
+shadowseek-hashing = { path = "crates/hashing" }
+shadowseek-index = { path = "crates/index" }
+shadowseek-tui = { path = "crates/tui" }
+
+[profile.release]
+lto = true
+opt-level = 3
+codegen-units = 1
+strip = true
