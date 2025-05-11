@@ -2,4 +2,14 @@
 name = "shadowseek-core"
 publish = false
 
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
 [dependencies]
+clap = { version = "4.5.37", features = ["derive"] }
+shadowseek-extractor = { version = "0.1.0-dev", path = "../extractor" }
+shadowseek-hashing = { version = "0.1.0-dev", path = "../hashing" }
+shadowseek-index = { version = "0.1.0-dev", path = "../index" }
+shadowseek-tui = { version = "0.1.0-dev", path = "../tui" }
