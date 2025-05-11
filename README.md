@@ -8,6 +8,4 @@
 
 Inspired by [Dr. Pawe&#322; Mandera](https://github.com/pmandera)'s near-duplicate detection tool [*Duometer*](https://github.com/pmandera/duometer), *ShadowSeek* aims to provide a more lightweight and efficient alternative. Development in Rust allows users to run a precompiled binary without needing to install a Java runtime environment; as an added bonus, this also reduces startup time and memory usage. The inclusion of SimHash as a first-pass filter also facilitates faster elimination of dissimilar documents, minimizing the number of comparisons performed in the more computationally expensive MinHash stage.
 
-Inspired by [Dr. Pawe&#322; Mandera](https://github.com/pmandera)'s near-duplicate detection tool [*Duometer*](https://github.com/pmandera/duometer), *ShadowSeek* aims to provide a more lightweight and efficient alternative. Development in Rust allows users to run a precompiled binary without needing to install a Java runtime environment; as an added bonus, this also reduces startup time and memory usage. The inclusion of SimHash as a first-pass filter also facilitates faster elimination of dissimilar documents, minimizing the number of comparisons performed in the more computationally expensive MinHash stage.
-
 **(CURRENTLY UNDER DEVELOPMENT)**
