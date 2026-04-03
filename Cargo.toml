@@ -1,0 +1,11 @@
+[package]
+name = "shadowseek"
+version = "0.1.0"
+edition = "2024"
+authors = ["Luis M. B. Varona <luismbvarona@protonmail.com>"]
+license = "MIT OR Apache-2.0"
+rust-version = "1.94"
+repository = "https://github.com/Luis-Varona/shadowseek"
+readme = "README.md"
+keywords = ["cli", "text-similarity", "minhash", "duplicate-detection", "near-duplicates"]
+description = "A CLI tool for near-duplicate detection across text documents."

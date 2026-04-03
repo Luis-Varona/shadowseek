@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    tags: ['*']
+  pull_request:
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  rustfmt:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+    - name: Check formatting of Rust code with rustfmt
+      uses: actions-rust-lang/rustfmt@v1
+
+  # Run clippy validation on PRs (with annotations)
+  clippy_check:
+    if: github.event_name == 'pull_request'
+    needs: rustfmt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: clechasseur/rs-clippy-check@v6.0.2
+        with:
+          args: --all-features
+
+  # Run clippy validation on pushes (no annotations)
+  clippy:
+    if: github.event_name == 'push'
+    needs: rustfmt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: cargo clippy --all-features -- -D warnings
+
+  build:
+    needs: rustfmt
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+    - name: Build
+      run: cargo build --verbose
+    - name: Run tests
+      run: cargo test --verbose
